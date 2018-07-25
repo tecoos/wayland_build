@@ -19,6 +19,14 @@ ExternalProject_Add(wayland-protocols
 #    INSTALL_DIR out
     )
 
+ExternalProject_Add(wayland-ivi-extension
+    DEPENDS wayland wayland-protocols
+    SOURCE_DIR ${CMAKE_SOURCE_DIR}/wayland-ivi-extension
+    BUILD_COMMAND make
+    INSTALL_COMMAND make DESTDIR=<INSTALL_DIR> install
+)
+
+
 ExternalProject_Add(mesa
     DEPENDS wayland wayland-protocols
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/mesa
